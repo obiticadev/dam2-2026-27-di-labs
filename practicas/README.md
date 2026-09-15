@@ -1,3 +1,3 @@
-# Practicas
+# Prácticas
 
-Entregas evaluables pequenas. Las aplicaciones completas tendran repositorio propio.
+Entregas evaluables pequeñas. Las aplicaciones completas tendrán repositorio propio.
