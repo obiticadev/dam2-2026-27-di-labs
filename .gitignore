@@ -1,0 +1,39 @@
+# IDE
+.idea/
+.vscode/
+.vs/
+.settings/
+.project
+.classpath
+.factorypath
+*.iml
+*.iws
+
+# Java, Maven y Gradle
+**/target/
+**/build/
+**/.gradle/
+**/out/
+*.class
+hs_err_pid*
+replay_pid*
+
+# .NET
+**/[Bb]in/
+**/[Oo]bj/
+**/TestResults/
+*.user
+*.suo
+*.nupkg
+
+# Secretos y temporales
+.env
+.env.*
+!.env.example
+credentials.*
+secrets.*
+*.log
+*.tmp
+*.bak
+.DS_Store
+Thumbs.db
