@@ -1,6 +1,5 @@
-# IDE
+# IDE: estado local
 .idea/
-.vscode/
 .vs/
 .settings/
 .project
@@ -9,31 +8,82 @@
 *.iml
 *.iws
 
+# VS Code: solo configuracion compartible conocida
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
 # Java, Maven y Gradle
 **/target/
 **/build/
+**/bin/
 **/.gradle/
 **/out/
 *.class
 hs_err_pid*
 replay_pid*
 
-# .NET
+# .NET: compilacion, pruebas y analisis
 **/[Bb]in/
 **/[Oo]bj/
+**/artifacts/
 **/TestResults/
+**/BenchmarkDotNet.Artifacts/
+**/packages/
 *.user
 *.suo
+*.userosscache
+*.sln.docstates
+*.rsuser
 *.nupkg
+*.snupkg
+*.coverage
+*.coveragexml
+coverage/
+coverage-*/
 
-# Secretos y temporales
+# Paquetes de aplicaciones regenerables
+*.apk
+*.aab
+*.ipa
+*.appx
+*.appxbundle
+*.msix
+*.msixbundle
+
+# Claves, firma, secretos y configuracion local
+*.jks
+*.keystore
+*.p12
+*.pfx
+*.key
+*.mobileprovision
+*-private.pem
+keystore.properties
+signing.properties
 .env
 .env.*
 !.env.example
+!.env.sample
+!.env.template
+!.env.*.example
 credentials.*
 secrets.*
+!credentials.example
+!credentials.example.*
+!credentials.*.example
+!secrets.example
+!secrets.example.*
+!secrets.*.example
+
+# Temporales
 *.log
 *.tmp
 *.bak
 .DS_Store
 Thumbs.db
+
+# Dependencias, wrappers y entregas JAR deliberadas si se conservan.
+!**/*.jar
