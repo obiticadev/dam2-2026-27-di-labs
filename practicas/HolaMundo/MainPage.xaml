@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HolaMundo.MainPage">
+
+  <ScrollView>
+    <HorizontalStackLayout
+      VerticalOptions="Center"
+      HorizontalOptions="Center">
+      <Grid ColumnDefinitions="Auto, Auto" ColumnSpacing="5"
+            RowDefinitions="Auto, Auto" RowSpacing="5">
+
+        <Border
+          Grid.Row="0"
+          Grid.Column="0"
+          HorizontalOptions="Fill"
+          VerticalOptions="Fill"
+          Background="Grey"
+          StrokeShape="RoundRectangle 15"
+          StrokeThickness="0"
+          Padding="15,0"
+          >
+          <Label
+            VerticalOptions="Center"
+            HorizontalOptions="Center"
+            HorizontalTextAlignment="Center"
+            VerticalTextAlignment="Center"
+            Padding="15"
+            Text="Mi primera interfaz"
+            FontSize="Micro" />
+        </Border>
+
+        <Button
+          Grid.Row="0"
+          Grid.Column="1"
+          VerticalOptions="Center"
+          HorizontalOptions="Center"
+          Text="Presioname"
+          Clicked="Button_Clicked"
+          Padding="10"
+          FontSize="Micro"
+          FlowDirection="MatchParent"
+          CornerRadius="15"
+          HeightRequest="100"
+          WidthRequest="120" />
+
+          <Border
+          Grid.Row="1"
+          Grid.Column="0"
+          Grid.ColumnSpan="2"
+          Background="Beige"
+          StrokeShape="RoundRectangle 15"
+          StrokeThickness="0"
+          Padding="15,0">
+
+            <Label
+            x:Name="contador"
+            VerticalOptions="Center"
+            HorizontalOptions="Center"
+            Padding="15"
+            Text="Conteo"
+            FontSize="Micro" />
+          </Border>
+      </Grid>
+    </HorizontalStackLayout>
+  </ScrollView>
+
+</ContentPage>
