@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Ej3_Login.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25"
+            MaximumWidthRequest="500"
+            MinimumWidthRequest="300">
+            <Label
+                Text="Register"
+                FontSize="Header"
+                FontFamily="Monospace"
+                FontAttributes="Bold"
+                HorizontalTextAlignment="End"
+                Margin="0,0,50,0"
+                />
+            <Label
+                Text="User"
+                FontSize="Medium"
+                FontFamily="Monospace"
+                />
+            <Entry
+                x:Name="name"
+                Placeholder="Ej: Mateo Alemán"
+                />
+            <Label
+                Text="Password"
+                FontSize="Medium"
+                FontFamily="Monospace"
+                />
+            <Entry
+                x:Name="pass"
+                Placeholder="Ej: Mateo123"
+                IsPassword="True"
+                />
+            <Button
+                x:Name="login"
+                Text="Login"
+                BackgroundColor="GreenYellow"
+                TextColor="Black"
+                Clicked="Button_Clicked"/>
+    </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
