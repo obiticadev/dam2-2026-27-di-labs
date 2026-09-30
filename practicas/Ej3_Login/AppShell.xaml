@@ -7,7 +7,6 @@
     Title="Ej3_Login">
 
     <ShellContent
-        Title="Home"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
 
