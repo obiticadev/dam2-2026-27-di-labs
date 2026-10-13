@@ -21,6 +21,7 @@ namespace Actividad1_Calculadora
             right = 0;
             operation = '0';
             mem = 0;
+            Mem.Text = "Mem:" + Convert.ToString(mem);
         }
 
         private void EqualsButton_Clicked(object sender, EventArgs e)
@@ -49,7 +50,29 @@ namespace Actividad1_Calculadora
         private void MemoryButton_Clicked(object sender, EventArgs e)
         {
             Button btn = (Button)sender;
-
+            try
+            {
+                switch (btn.Text)
+                {
+                    case "MC":
+                        mem = 0;
+                        break;
+                    case "M+":
+                        mem += Convert.ToDouble(Entrada.Text);
+                        break;
+                    case "M-":
+                        mem -= Convert.ToDouble(Entrada.Text);
+                        break;
+                    case "M":
+                        Entrada.Text = Convert.ToString(mem);
+                        break;
+                }
+                Mem.Text = "Mem:" + Convert.ToString(mem);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
         }
 
         private void ButtonNum_Clicked(object sender, EventArgs e)
