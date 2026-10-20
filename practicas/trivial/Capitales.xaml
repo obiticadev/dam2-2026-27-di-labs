@@ -5,18 +5,21 @@
              Title="Capitales"
              BackgroundImageSource="map.jpg">
     <Grid
-        Padding="20">
+        Padding="20"
+        RowDefinitions="Auto,*">
         <Label
+            x:Name="lblPregunta"
             Text="¿De qué país es la capital Budapest?"
             FontSize="35"
             FontAttributes="Bold"
             HorizontalTextAlignment="Start"
             FontFamily="Astronomy"
+            Grid.Row="0"
             />
         <VerticalStackLayout
             VerticalOptions="Center"
             HorizontalOptions="Center"
-            
+            Grid.Row="1"
             >
             <Button
                 x:Name="opt1"
@@ -31,6 +34,7 @@
                 WidthRequest="350"
                 HeightRequest="80"
                 Margin="10"
+                Clicked="Opcion_Clicked"
                 />
             <Button
                 x:Name="opt2"
@@ -44,6 +48,7 @@
                 WidthRequest="350"
                 HeightRequest="80"
                 Margin="10"
+                Clicked="Opcion_Clicked"
                 />
             <Button
                 x:Name="opt3"
@@ -57,6 +62,7 @@
                 WidthRequest="350"
                 HeightRequest="80"
                 Margin="10"
+                Clicked="Opcion_Clicked"
                 />
             <Button
                 x:Name="opt4"
@@ -70,6 +76,7 @@
                 WidthRequest="350"
                 HeightRequest="80"
                 Margin="10"
+                Clicked="Opcion_Clicked"
                 />
             <Button
                 x:Name="next"
@@ -80,6 +87,7 @@
                 WidthRequest="250"
                 HeightRequest="40"
                 Margin="10"
+                Clicked="next_Clicked"
                 />
         </VerticalStackLayout>
     </Grid>
