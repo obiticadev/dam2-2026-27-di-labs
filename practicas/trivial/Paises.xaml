@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="trivial.Paises"
+             Title="Paises"
+             BackgroundImageSource="vacation.jpg">
+  <Grid
+    Padding="20"
+    RowDefinitions="Auto,*">
+    <Label
+        x:Name="lblPregunta"
+        Text="¿De qué país es la capital Budapest?"
+        FontSize="35"
+        FontAttributes="Bold"
+        HorizontalTextAlignment="Start"
+        FontFamily="Roboto Condensed"
+        Grid.Row="0"
+        />
+    <VerticalStackLayout
+        VerticalOptions="Center"
+        HorizontalOptions="Center"
+        Grid.Row="1"
+        >
+      <Button
+            x:Name="opt1"
+            Text=""
+            FontSize="40"
+            FontFamily="Roboto Condensed"
+            FontAttributes="Bold"
+            TextColor="Black"
+            BorderWidth="2"
+            BorderColor="Black"
+            BackgroundColor="LightGray"
+            WidthRequest="350"
+            HeightRequest="80"
+            Margin="10"
+            Clicked="Opcion_Clicked"
+            />
+      <Button
+            x:Name="opt2"
+            Text=""
+            FontSize="40"
+            FontAttributes="Bold"
+            TextColor="Black"
+            BorderWidth="2"
+            BorderColor="Black"
+            BackgroundColor="LightGray"
+            WidthRequest="350"
+            HeightRequest="80"
+            Margin="10"
+            Clicked="Opcion_Clicked"
+            FontFamily="Roboto Condensed"
+            />
+      <Button
+            x:Name="opt3"
+            Text=""
+            FontSize="40"
+            FontAttributes="Bold"
+            TextColor="Black"
+            BorderWidth="2"
+            BorderColor="Black"
+            BackgroundColor="LightGray"
+            WidthRequest="350"
+            HeightRequest="80"
+            Margin="10"
+            Clicked="Opcion_Clicked"
+            FontFamily="Roboto Condensed"
+            />
+      <Button
+            x:Name="opt4"
+            Text=""
+            FontSize="40"
+            FontAttributes="Bold"
+            TextColor="Black"
+            BorderWidth="2"
+            BorderColor="Black"
+            BackgroundColor="LightGray"
+            WidthRequest="350"
+            HeightRequest="80"
+            Margin="10"
+            Clicked="Opcion_Clicked"
+            FontFamily="Roboto Condensed"
+            />
+      <Button
+            x:Name="next"
+            Text="Siguiente capital"
+            FontSize="20"
+            TextColor="Black"
+            BackgroundColor="LightGray"
+            WidthRequest="250"
+            HeightRequest="40"
+            Margin="10"
+            Clicked="next_Clicked"
+            FontFamily="Roboto Condensed"
+            />
+      <Button
+            x:Name="home"
+            Text="Volver"
+            FontSize="Body"
+            TextColor="Black"
+            BackgroundColor="LightGray"
+            WidthRequest="125"
+            HeightRequest="20"
+            Margin="10"
+            Clicked="home_Clicked"
+            FontFamily="Roboto Condensed"/>
+    </VerticalStackLayout>
+  </Grid>
+</ContentPage>

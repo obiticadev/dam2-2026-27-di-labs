@@ -7,9 +7,16 @@ namespace trivial
         public MainPage()
         {
             InitializeComponent();
+            
+        }
+        private async void capitales_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Capitales());
         }
 
-
-
+        private async void paises_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Paises());
+        }
     }
 }

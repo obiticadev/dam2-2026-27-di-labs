@@ -31,6 +31,7 @@
                 BorderColor="Black"
                 BackgroundColor="Transparent"
                 WidthRequest="480"
+                Clicked="paises_Clicked"
                 />
             <Button
                 x:Name="capitales"
@@ -43,6 +44,7 @@
                 BorderColor="Black"
                 BackgroundColor="Transparent"
                 WidthRequest="480"
+                Clicked="capitales_Clicked"
                 />
         </VerticalStackLayout>
     </ScrollView>

@@ -1,4 +1,4 @@
-﻿namespace trivial
+namespace trivial
 {
     public partial class App : Application
     {
