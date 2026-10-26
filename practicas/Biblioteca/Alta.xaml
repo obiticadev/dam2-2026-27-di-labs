@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Biblioteca.Alta"
+             Title="Alta"
+             BackgroundColor="#E6C48A">
+    <Grid
+        RowDefinitions="*,*,*,*"
+        ColumnDefinitions="*,*,*">
+        <Label
+            Text="Titulo"
+            Grid.Row="0"
+            Grid.Column="0"
+            HorizontalTextAlignment="End"
+            VerticalTextAlignment="Center"/>
+        <Entry
+            x:Name="titulo"
+            Grid.Row="0"
+            Grid.Column="1"
+            Placeholder="Ej: El cuervo"
+            PlaceholderColor="Black"
+            Margin="40,85"/>
+        <Label
+            Text="Portada del libro"
+            Grid.Row="0"
+            Grid.Column="2"
+            HorizontalTextAlignment="Center"
+            VerticalTextAlignment="Center"/>
+        <Label
+            Text="Autor"
+            Grid.Row="1"
+            Grid.Column="0"
+            HorizontalTextAlignment="End"
+            VerticalTextAlignment="Center"/>
+        <Entry
+            x:Name="autor"
+            Grid.Row="1"
+            Grid.Column="1"
+            Placeholder="Ej: Edgar Alan Poe"
+            PlaceholderColor="Black"
+            Margin="40,85"/>
+        <Image
+            x:Name="imagenPortada"
+            Source="imagenbiblioteca.jpg"
+            Grid.Row="1"
+            Grid.RowSpan="2"
+            Grid.Column="2"
+            Margin="120,60"
+            Aspect="Fill"/>
+        <Label
+            Text="Editorial"
+            Grid.Row="2"
+            Grid.Column="0"
+            HorizontalTextAlignment="End"
+            VerticalTextAlignment="Center"/>
+        <Entry
+            x:Name="editorial"
+            Grid.Row="2"
+            Grid.Column="1"
+            Placeholder="Ej: Cifuentes S.L."
+            PlaceholderColor="Black"
+            Margin="40,85"/>
+        <Button
+            Text="Guardar"
+            Grid.Row="3"
+            Grid.Column="0"
+            TextColor="red"
+            BackgroundColor="#ff8566"
+            Margin="140,70"/>
+        <Button
+            Text="Limpiar"
+            Grid.Row="3"
+            Grid.Column="1"
+            TextColor="red"
+            BackgroundColor="#ff8566"
+            Margin="140,70"/>
+        <Button
+            Text="Seleccionar imagen"
+            Grid.Row="3"
+            Grid.Column="2"
+            TextColor="red"
+            BackgroundColor="#ff8566"
+            Margin="140,70"/>
+  </Grid>
+</ContentPage>
