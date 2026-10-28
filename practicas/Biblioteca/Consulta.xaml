@@ -2,13 +2,89 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Biblioteca.Consulta"
-             Title="Consulta">
+             Title="Consulta"
+             BackgroundColor="#E6C48A">
     <Grid
-        RowDefinitions="*,*,*,*,*"
+        RowDefinitions="150,AUTO,AUTO,*,*"
         ColumnDefinitions="*,*,*">
         <Label
             Text="Tipo de consulta:"
-            FontSize="20"/>
-
-     </Grid>
+            FontSize="20"
+            Grid.Row="0"
+            Grid.Column="0"
+            Grid.ColumnSpan="3"
+            HorizontalTextAlignment="Center"
+            VerticalTextAlignment="Center"/>
+        <RadioButton
+            Content="Autor"
+            GroupName="consulta"
+            Grid.Row="1"
+            Grid.Column="0"
+            Grid.ColumnSpan="3"
+            HorizontalOptions="Center"
+            />
+        <RadioButton
+            Content="Editorial"
+            GroupName="consulta"
+            Grid.Row="2"
+            Grid.Column="0"
+            Grid.ColumnSpan="3"
+            HorizontalOptions="Center"
+            />
+        <Label
+            Text="Título"
+            HeightRequest="90"
+            FontSize="20"
+            Grid.Row="3"
+            Grid.Column="0"
+            HorizontalTextAlignment="Center"
+            VerticalTextAlignment="End"/>
+        <Label
+            Text="Autor/Editorial"
+            HeightRequest="90"
+            FontSize="20"
+            Grid.Row="3"
+            Grid.Column="1"
+            HorizontalTextAlignment="Center"
+            VerticalTextAlignment="End"/>
+        <Label
+            Text="Portada"
+            HeightRequest="90"
+            FontSize="20"
+            Grid.Row="3"
+            Grid.Column="2"
+            HorizontalTextAlignment="Center"
+            VerticalTextAlignment="End"/>
+        <ListView
+            Grid.Row="4"
+            Grid.Column="0"
+            x:Name="listaTitulo"
+            ItemSelected="listaTitulo_ItemSelected">
+            
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding .}"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <ListView
+            Grid.Row="4"
+            Grid.Column="1"
+            x:Name="listaAutorEditorial"
+            ItemSelected="listaAutorEditorial_ItemSelected">
+    
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding .}"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Image
+            x:Name="imagenPortadaAlta"
+            Source="imagenbiblioteca.jpg"
+            Grid.Row="4"
+            Grid.Column="2"
+            Margin="120,60"
+            Aspect="Fill"/>
+  </Grid>
 </ContentPage>
