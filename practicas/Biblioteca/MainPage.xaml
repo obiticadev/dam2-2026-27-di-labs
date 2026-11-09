@@ -1,26 +1,40 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Biblioteca.MainPage"
-             BackgroundImageSource="imagenbiblioteca.jpg">
-    <VerticalStackLayout VerticalOptions="Center">
-        <Label
-            Text="Biblioteca"
-            FontSize="140"
-            FontAttributes="Bold"
-            HorizontalTextAlignment="Center"
-            VerticalTextAlignment="Center"
-            
-            TextColor="White"/>
-        <Label
-            Text="La última banqueta"
-            FontSize="130"
-            FontAttributes="Bold"
-            HorizontalTextAlignment="Center"
-            VerticalTextAlignment="Center"
-            TextColor="White"/>
-        
-    </VerticalStackLayout>
-    
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Biblioteca.MainPage"
+    BackgroundImageSource="imagenbiblioteca.jpg">
 
+  <Grid BackgroundColor="#66000000">
+    <ScrollView Orientation="Vertical">
+      <Grid
+                Padding="24"
+                RowDefinitions="Auto,Auto"
+                RowSpacing="16"
+                VerticalOptions="Center">
+
+        <Label
+                    x:Name="tituloPrincipal"
+                    Text="Biblioteca"
+                    Grid.Row="0"
+                    FontSize="40"
+                    FontAttributes="Bold"
+                    HorizontalTextAlignment="Center"
+                    LineBreakMode="WordWrap"
+                    TextColor="White" />
+
+        <Label
+                    x:Name="subtitulo"
+                    Text="La última banqueta"
+                    Grid.Row="1"
+                    FontSize="28"
+                    FontAttributes="Bold"
+                    HorizontalTextAlignment="Center"
+                    LineBreakMode="WordWrap"
+                    TextColor="White" />
+
+      </Grid>
+    </ScrollView>
+
+  </Grid>
 </ContentPage>

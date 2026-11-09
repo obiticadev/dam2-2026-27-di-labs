@@ -1,85 +1,135 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Biblioteca.Alta"
-             Title="Alta"
-             BackgroundColor="#E6C48A">
-    <Grid
-        RowDefinitions="*,*,*,*"
-        ColumnDefinitions="*,*,*">
-        <Label
-            Text="Titulo"
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Biblioteca.Alta"
+    Title="Alta"
+    BackgroundColor="{StaticResource BibliotecaFondo}">
+
+    <ContentPage.Resources>
+        <Style TargetType="Label">
+            <Setter Property="TextColor"
+                    Value="{StaticResource BibliotecaTexto}" />
+            <Setter Property="FontSize" Value="16" />
+        </Style>
+
+        <Style TargetType="Entry">
+            <Setter Property="TextColor"
+                    Value="{StaticResource BibliotecaTexto}" />
+            <Setter Property="PlaceholderColor"
+                    Value="{StaticResource BibliotecaTextoSuave}" />
+            <Setter Property="BackgroundColor"
+                    Value="{StaticResource BibliotecaSuperficie}" />
+            <Setter Property="MinimumHeightRequest" Value="48" />
+        </Style>
+
+        <Style TargetType="Button">
+            <Setter Property="BackgroundColor"
+                    Value="{StaticResource BibliotecaPrincipal}" />
+            <Setter Property="TextColor" Value="White" />
+            <Setter Property="CornerRadius" Value="10" />
+            <Setter Property="MinimumHeightRequest" Value="48" />
+            <Setter Property="Padding" Value="16,12" />
+        </Style>
+    </ContentPage.Resources>
+
+  <Grid
+        Padding="16"
+        RowDefinitions="*,Auto"
+        ColumnDefinitions="*,*,*"
+        RowSpacing="16"
+        ColumnSpacing="12">
+    <ScrollView
+        Grid.Row="0"
+        Grid.Column="0"
+        Grid.ColumnSpan="2"
+        Orientation="Vertical">
+      <Grid
+          RowDefinitions="Auto,Auto,Auto"
+          ColumnDefinitions="*,*"
+          RowSpacing="16"
+          ColumnSpacing="12">
+
+      <Label
+            Text="Título"
             Grid.Row="0"
             Grid.Column="0"
             HorizontalTextAlignment="End"
-            VerticalTextAlignment="Center"/>
+            VerticalTextAlignment="Center" />
+
         <Entry
             x:Name="titulo"
             Grid.Row="0"
             Grid.Column="1"
-            Placeholder="Ej: El cuervo"
-            PlaceholderColor="Black"
-            Margin="40,85"/>
-        <Label
-            Text="Portada del libro"
-            Grid.Row="0"
-            Grid.Column="2"
-            HorizontalTextAlignment="Center"
-            VerticalTextAlignment="Center"/>
+            Placeholder="Ej.: El cuervo" />
+
         <Label
             Text="Autor"
             Grid.Row="1"
             Grid.Column="0"
             HorizontalTextAlignment="End"
-            VerticalTextAlignment="Center"/>
+            VerticalTextAlignment="Center" />
+
         <Entry
             x:Name="autor"
             Grid.Row="1"
             Grid.Column="1"
-            Placeholder="Ej: Edgar Alan Poe"
-            PlaceholderColor="Black"
-            Margin="40,85"/>
-        <Image
-            x:Name="imagenPortada"
-            Source="imagenbiblioteca.jpg"
-            Grid.Row="1"
-            Grid.RowSpan="2"
-            Grid.Column="2"
-            Margin="120,60"
-            Aspect="Fill"/>
+            Placeholder="Ej.: Edgar Allan Poe" />
+
         <Label
             Text="Editorial"
             Grid.Row="2"
             Grid.Column="0"
             HorizontalTextAlignment="End"
-            VerticalTextAlignment="Center"/>
-        <Entry
+            VerticalTextAlignment="Center" />
+
+      <Entry
             x:Name="editorial"
             Grid.Row="2"
             Grid.Column="1"
-            Placeholder="Ej: Cifuentes S.L."
-            PlaceholderColor="Black"
-            Margin="40,85"/>
-        <Button
+            Placeholder="Ej.: Cifuentes S.L." />
+
+      </Grid>
+    </ScrollView>
+    <Grid
+        Grid.Row="0"
+        Grid.Column="2"
+        RowDefinitions="Auto,*"
+        RowSpacing="12">
+
+      <Label
+        Text="Portada del libro"
+        Grid.Row="0"
+        HorizontalTextAlignment="Center"
+        VerticalTextAlignment="Center" />
+
+      <Image
+        x:Name="imagenPortada"
+        Grid.Row="1"
+        HorizontalOptions="Fill"
+        VerticalOptions="Fill"
+        Aspect="AspectFit" />
+
+    </Grid>
+
+    <Button
             Text="Guardar"
-            Grid.Row="3"
+            Grid.Row="1"
             Grid.Column="0"
-            TextColor="red"
-            BackgroundColor="#ff8566"
-            Margin="140,70"/>
-        <Button
+            Clicked="Guardar_clicked" />
+
+      <Button
             Text="Limpiar"
-            Grid.Row="3"
+            Grid.Row="1"
             Grid.Column="1"
-            TextColor="red"
-            BackgroundColor="#ff8566"
-            Margin="140,70"/>
-        <Button
+            Clicked="Limpiar_Clicked" />
+
+      <Button
             Text="Seleccionar imagen"
-            Grid.Row="3"
+            Grid.Row="1"
             Grid.Column="2"
-            TextColor="red"
-            BackgroundColor="#ff8566"
-            Margin="140,70"/>
+            LineBreakMode="WordWrap"
+            Clicked="SeleccionarImagen_Clicked"/>
+
   </Grid>
 </ContentPage>

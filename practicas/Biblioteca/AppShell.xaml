@@ -5,8 +5,16 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:Biblioteca"
     Title="Biblioteca"
+    BackgroundColor="#E6C48A"
+    Shell.BackgroundColor="#E6C48A"
+    Shell.TitleColor="#30251C"
+    Shell.ForegroundColor="#30251C"
+    Shell.UnselectedColor="#65513D"
     Shell.TabBarBackgroundColor="#E6C48A"
-    BackgroundColor="#E6C48A">
+    Shell.TabBarForegroundColor="#30251C"
+    Shell.TabBarTitleColor="#30251C"
+    Shell.TabBarUnselectedColor="#65513D"
+    Shell.NavBarHasShadow="False">
 
     <TabBar>
         <ShellContent
