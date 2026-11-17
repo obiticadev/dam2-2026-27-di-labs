@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="Ej4_Tienda.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Ej4_Tienda"
+    xmlns:Pages="clr-namespace:Ej4_Tienda.Pages"
+    Title="Tienda"
+    Shell.BackgroundColor="#E6C48A"
+    Shell.TitleColor="#30251C"
+    Shell.ForegroundColor="#30251C"
+    Shell.UnselectedColor="#65513D"
+    Shell.TabBarBackgroundColor="#E6C48A"
+    Shell.TabBarForegroundColor="#30251C"
+    Shell.TabBarTitleColor="#30251C"
+    Shell.TabBarUnselectedColor="#65513D"
+    Shell.NavBarHasShadow="False">
+
+    <TabBar>
+        <ShellContent
+            Title="Bienvenida"
+            ContentTemplate="{DataTemplate Pages:Bienvenida}"
+            Route="Bienvenida" />
+        <ShellContent
+            Title="Altas"
+            ContentTemplate="{DataTemplate Pages:Altas}"
+            Route="Altas" />
+        <ShellContent
+            Title="Consulta Lista"
+            ContentTemplate="{DataTemplate Pages:ConsultaLista}"
+            Route="ConsultaLista" />
+        <ShellContent
+            Title="Consulta individual con búsqueda"
+            ContentTemplate="{DataTemplate Pages:ConsultaIndividualConBusqueda}"
+            Route="ConsultaIndividualConBusqueda" />
+    </TabBar>
+
+</Shell>

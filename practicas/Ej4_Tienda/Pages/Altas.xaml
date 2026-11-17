@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Ej4_Tienda.Pages.Altas"
+             Title="Altas"
+             BackgroundColor="White">
+    <ContentPage.Resources>
+        <Style TargetType="Label">
+            <Setter Property="TextColor" Value="Black" />
+            <Setter Property="FontSize" Value="13" />
+        </Style>
+        <Style TargetType="Entry">
+            <Setter Property="TextColor" Value="#253825" />
+            <Setter Property="PlaceholderColor" Value="#253825" />
+            <Setter Property="BackgroundColor" Value="Transparent" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="HeightRequest" Value="38" />
+            <Setter Property="MinimumHeightRequest" Value="38" />
+            <Setter Property="Margin" Value="8,0,0,0" />
+        </Style>
+        <Style TargetType="BoxView">
+            <Setter Property="Color" Value="#66AD59" />
+            <Setter Property="HeightRequest" Value="1" />
+            <Setter Property="HorizontalOptions" Value="Fill" />
+        </Style>
+    </ContentPage.Resources>
+
+    <Grid ColumnDefinitions="*,*">
+        <VerticalStackLayout Grid.Column="0">
+            <Label Text="Clientes:"
+                   HorizontalOptions="Center" />
+        </VerticalStackLayout>
+
+        <ScrollView Grid.Column="1">
+            <VerticalStackLayout Padding="24,20,12,12" Spacing="0">
+                <Label Text="Nombre:" />
+                <Entry x:Name="altaNombre"
+                       Placeholder="Ingrese el nombre"
+                       HandlerChanged="OnEntryHandlerChanged" />
+                <BoxView Margin="0,0,0,16" />
+
+                <Label Text="Apellidos:" />
+                <Entry x:Name="altaApellido"
+                       Placeholder="Ingrese los apellidos"
+                       HandlerChanged="OnEntryHandlerChanged" />
+                <BoxView Margin="0,0,0,16" />
+
+                <Label Text="Ciudad:" />
+                <Entry x:Name="altaCiudad"
+                       Placeholder="Ingrese la ciudad"
+                       HandlerChanged="OnEntryHandlerChanged" />
+                <BoxView Margin="0,0,0,16" />
+
+                <Label Text="Correo Electrónico:" />
+                <Entry x:Name="altaCorreo"
+                       Placeholder="Ingrese el correo"
+                       Keyboard="Email"
+                       HandlerChanged="OnEntryHandlerChanged" />
+                <BoxView Margin="0,0,0,16" />
+
+                <Label Text="Comentarios:" />
+                <Entry x:Name="altaComentarios"
+                       Placeholder="Ingrese comentarios"
+                       HandlerChanged="OnEntryHandlerChanged" />
+                <BoxView />
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>
