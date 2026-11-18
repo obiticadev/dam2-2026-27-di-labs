@@ -5,10 +5,6 @@
              Title="Altas"
              BackgroundColor="White">
     <ContentPage.Resources>
-        <Style TargetType="Label">
-            <Setter Property="TextColor" Value="Black" />
-            <Setter Property="FontSize" Value="13" />
-        </Style>
         <Style TargetType="Entry">
             <Setter Property="TextColor" Value="#253825" />
             <Setter Property="PlaceholderColor" Value="#253825" />
@@ -23,46 +19,97 @@
             <Setter Property="HeightRequest" Value="1" />
             <Setter Property="HorizontalOptions" Value="Fill" />
         </Style>
+        <Style TargetType="CheckBox">
+            <Setter Property="Color" Value="#66AD59"/>
+        </Style>
     </ContentPage.Resources>
 
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Añadir" Clicked="OnAnadirClicked"/>
+        <ToolbarItem Text="Modificar" Clicked="OnModificarClicked"/>
+        <ToolbarItem Text="Borrar" Clicked="OnBorrarClicked"/>
+        <ToolbarItem Text="Limpiar" Clicked="OnLimpiarClicked"/>
+    </ContentPage.ToolbarItems>
+
     <Grid ColumnDefinitions="*,*">
-        <VerticalStackLayout Grid.Column="0">
-            <Label Text="Clientes:"
-                   HorizontalOptions="Center" />
-        </VerticalStackLayout>
+        <Grid Grid.Column="0"
+              RowDefinitions="Auto,Auto,*"
+              Padding="20">
+            <Label Text="COCHE"
+                   FontSize="30"
+                   HorizontalOptions="Center"/>
+            <Label Grid.Row="1"
+                   Text="Clientes:"
+                   FontSize="16"
+                   Margin="0,20,0,10"/>
+            <CollectionView Grid.Row="2"
+                            x:Name="listaClientes"
+                            SelectionMode="Single"
+                            SelectionChanged="OnClienteSeleccionado">
+                  <CollectionView.ItemTemplate>
+                      <DataTemplate>
+                          <Label Padding="8,10">
+                              <Label.FormattedText>
+                                  <FormattedString>
+                                      <Span Text="{Binding apellido}" TextColor="#7B2FD0"/>
+                                      <Span Text=" "/>
+                                      <Span Text="{Binding nombre}"/>
+                                  </FormattedString>
+
+                              </Label.FormattedText>
+                          </Label>
+                      </DataTemplate>
+                  </CollectionView.ItemTemplate>
+            </CollectionView>
+            
+          
+        </Grid>
 
         <ScrollView Grid.Column="1">
+            <ScrollView.Resources>
+                <Style TargetType="Label">
+                    <Setter Property="TextColor" Value="Black" />
+                    <Setter Property="FontSize" Value="13" />
+                </Style>
+            </ScrollView.Resources>
             <VerticalStackLayout Padding="24,20,12,12" Spacing="0">
                 <Label Text="Nombre:" />
                 <Entry x:Name="altaNombre"
-                       Placeholder="Ingrese el nombre"
-                       HandlerChanged="OnEntryHandlerChanged" />
+                       Placeholder="Ingrese el nombre" />
                 <BoxView Margin="0,0,0,16" />
 
                 <Label Text="Apellidos:" />
                 <Entry x:Name="altaApellido"
-                       Placeholder="Ingrese los apellidos"
-                       HandlerChanged="OnEntryHandlerChanged" />
+                       Placeholder="Ingrese los apellidos" />
                 <BoxView Margin="0,0,0,16" />
 
                 <Label Text="Ciudad:" />
                 <Entry x:Name="altaCiudad"
-                       Placeholder="Ingrese la ciudad"
-                       HandlerChanged="OnEntryHandlerChanged" />
+                       Placeholder="Ingrese la ciudad" />
                 <BoxView Margin="0,0,0,16" />
 
                 <Label Text="Correo Electrónico:" />
                 <Entry x:Name="altaCorreo"
                        Placeholder="Ingrese el correo"
-                       Keyboard="Email"
-                       HandlerChanged="OnEntryHandlerChanged" />
+                       Keyboard="Email" />
                 <BoxView Margin="0,0,0,16" />
 
                 <Label Text="Comentarios:" />
                 <Entry x:Name="altaComentarios"
-                       Placeholder="Ingrese comentarios"
-                       HandlerChanged="OnEntryHandlerChanged" />
-                <BoxView />
+                       Placeholder="Ingrese comentarios" />
+                <BoxView Margin="0,0,0,16"/>
+                <HorizontalStackLayout Spacing="4">
+                    <CheckBox x:Name="altaVip"
+                              MinimumWidthRequest="0"
+                              WidthRequest="32" />
+                    <Label Text="VIP"
+                           VerticalOptions="Center">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnVipLabelTapped"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </HorizontalStackLayout>
+                
             </VerticalStackLayout>
         </ScrollView>
     </Grid>

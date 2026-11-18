@@ -65,15 +65,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Update="Pages\Bienvenida.xaml.cs">
-	    <DependentUpon>Bienvenida.xaml</DependentUpon>
-	  </Compile>
-	  <Compile Update="Pages\Altas.xaml.cs">
-	    <DependentUpon>Altas.xaml</DependentUpon>
-	  </Compile>
-	</ItemGroup>
-
-	<ItemGroup>
 	  <MauiXaml Update="Pages\Altas.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
