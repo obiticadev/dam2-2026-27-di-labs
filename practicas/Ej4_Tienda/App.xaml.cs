@@ -5,6 +5,9 @@
         public App()
         {
             InitializeComponent();
+
+            // Al arrancar, se cargan los clientes guardados en datosClientes.txt (AppData)
+            Models.ServicioClientes.Cargar();
         }
 
         protected override Window CreateWindow(IActivationState? activationState)

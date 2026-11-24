@@ -1,12 +1,108 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:Ej4_Tienda.Models"
+             xmlns:conv="clr-namespace:Ej4_Tienda.Converters"
              x:Class="Ej4_Tienda.Pages.ConsultaIndividualConBusqueda"
-             Title="ConsultaIndividualConBusqueda">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             Title="Consulta individual"
+             BackgroundColor="White">
+
+    <!-- OJO: no poner aquí estilos implícitos de Label (TargetType="Label" sin x:Key).
+         En Windows hacen que las filas del CollectionView salgan vacías. -->
+    <ContentPage.Resources>
+        <conv:VipColorConverter x:Key="VipColor" />
+
+        <!-- Botón verde, y gris cuando está deshabilitado -->
+        <Style x:Key="BotonNavegacion" TargetType="Button">
+            <Setter Property="WidthRequest" Value="120" />
+            <Setter Property="TextColor" Value="White" />
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor" Value="#66AD59" />
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState x:Name="Disabled">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor" Value="#D0D0D0" />
+                                <Setter Property="TextColor" Value="#808080" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+        </Style>
+    </ContentPage.Resources>
+
+    <Grid RowDefinitions="Auto,Auto,*" Padding="20" RowSpacing="16">
+
+        <!-- Buscador: filtra en tiempo real mientras se escribe -->
+        <Entry Grid.Row="0"
+               x:Name="entradaBusqueda"
+               Placeholder="Buscar cliente..."
+               TextColor="Black"
+               TextChanged="OnBusquedaCambiada" />
+
+        <!-- Navegación -->
+        <HorizontalStackLayout Grid.Row="1" Spacing="20" HorizontalOptions="Center">
+            <Button x:Name="botonAnterior"
+                    Text="Anterior"
+                    Style="{StaticResource BotonNavegacion}"
+                    Clicked="OnAnteriorClicked" />
+            <Button x:Name="botonSiguiente"
+                    Text="Siguiente"
+                    Style="{StaticResource BotonNavegacion}"
+                    Clicked="OnSiguienteClicked" />
+        </HorizontalStackLayout>
+
+        <!-- Lista de clientes (con scroll) -->
+        <CollectionView Grid.Row="2"
+                        x:Name="listaClientes"
+                        SelectionMode="Single"
+                        SelectionChanged="OnSeleccionCambiada"
+                        VerticalScrollBarVisibility="Always">
+            <CollectionView.EmptyView>
+                <Label Text="No se ha encontrado ningún cliente."
+                       TextColor="Gray"
+                       HorizontalOptions="Center"
+                       Margin="0,20" />
+            </CollectionView.EmptyView>
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="models:Cliente">
+                    <Grid RowDefinitions="*,Auto">
+                        <!-- El cliente seleccionado se resalta con fondo gris -->
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal">
+                                    <VisualState.Setters>
+                                        <Setter Property="BackgroundColor" Value="Transparent" />
+                                    </VisualState.Setters>
+                                </VisualState>
+                                <VisualState x:Name="Selected">
+                                    <VisualState.Setters>
+                                        <Setter Property="BackgroundColor" Value="#E0E0E0" />
+                                    </VisualState.Setters>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+
+                        <VerticalStackLayout Padding="0,14" Spacing="2" HorizontalOptions="Center">
+                            <!-- Estrella amarilla si es VIP, negra si no -->
+                            <Label Text="★"
+                                   FontSize="26"
+                                   HorizontalOptions="Center"
+                                   TextColor="{Binding vip, Converter={StaticResource VipColor}}" />
+                            <Label Text="{Binding nombre}" FontAttributes="Bold" TextColor="Black" HorizontalOptions="Center" />
+                            <Label Text="{Binding apellido}" TextColor="Black" HorizontalOptions="Center" />
+                            <Label Text="{Binding ciudad}" TextColor="Black" HorizontalOptions="Center" />
+                            <Label Text="{Binding correo}" TextColor="Black" HorizontalOptions="Center" />
+                        </VerticalStackLayout>
+                        <BoxView Grid.Row="1" HeightRequest="1" Color="#E0E0E0" />
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
 </ContentPage>

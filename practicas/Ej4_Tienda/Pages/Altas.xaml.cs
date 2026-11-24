@@ -1,21 +1,15 @@
 using Ej4_Tienda.Models;
-using System.Collections.ObjectModel;
-using System.Threading.Tasks;
 
 namespace Ej4_Tienda.Pages;
 
 public partial class Altas : ContentPage
 {
-    private ObservableCollection<Cliente> clientes = new();
     private Cliente? clienteSeleccionado;
 	public Altas()
 	{
 		InitializeComponent();
-        listaClientes.ItemsSource = clientes;
-
-        clientes.Add(new Cliente { nombre = "Luis", apellido = "Fernandez Alcaraz" });
-        clientes.Add(new Cliente { nombre = "María", apellido = "Huerta Perines" });
-	}
+        listaClientes.ItemsSource = ServicioClientes.Clientes;
+    }
 
 
 
@@ -41,7 +35,7 @@ public partial class Altas : ContentPage
             vip = altaVip.IsChecked
         };
 
-        clientes.Add(nuevo);
+        ServicioClientes.Clientes.Add(nuevo);
 
         LimpiarFormulario();
 
@@ -89,14 +83,14 @@ public partial class Altas : ContentPage
             return;
         }
 
-        int posicion = clientes.IndexOf(clienteSeleccionado);
-        clientes[posicion] = new Cliente
+        int posicion = ServicioClientes.Clientes.IndexOf(clienteSeleccionado);
+        ServicioClientes.Clientes[posicion] = new Cliente
         {
             nombre = altaNombre.Text.Trim(),
             apellido = altaApellido.Text.Trim(),
-            ciudad = altaCiudad.Text.Trim(),
-            correo = altaCorreo.Text.Trim(),
-            comentarios = altaComentarios.Text.Trim(),
+            ciudad = altaCiudad.Text ?? string.Empty,
+            correo = altaCorreo.Text ?? string.Empty,
+            comentarios = altaComentarios.Text ?? string.Empty,
             vip = altaVip.IsChecked
         };
         LimpiarFormulario();
@@ -122,7 +116,20 @@ public partial class Altas : ContentPage
         {
             return;
         }
-        clientes.Remove(aBorrar);
+        ServicioClientes.Clientes.Remove(aBorrar);
         LimpiarFormulario();
+    }
+
+    private async void OnGuardarClicked(object sender, EventArgs e)
+    {
+        if (ServicioClientes.Clientes.Count == 0)
+        {
+            await DisplayAlert("Guardar", "No hay clientes para guardar.", "OK");
+            return;
+        }
+
+        ServicioClientes.Guardar();
+        await DisplayAlert("Guardar",
+            $"Clientes guardados correctamente en:\n{ServicioClientes.RutaArchivo}", "OK");
     }
 }

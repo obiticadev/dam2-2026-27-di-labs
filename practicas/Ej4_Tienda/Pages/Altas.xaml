@@ -29,6 +29,7 @@
         <ToolbarItem Text="Modificar" Clicked="OnModificarClicked"/>
         <ToolbarItem Text="Borrar" Clicked="OnBorrarClicked"/>
         <ToolbarItem Text="Limpiar" Clicked="OnLimpiarClicked"/>
+        <ToolbarItem Text="Guardar" Clicked="OnGuardarClicked"/>
     </ContentPage.ToolbarItems>
 
     <Grid ColumnDefinitions="*,*">
